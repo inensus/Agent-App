@@ -2,9 +2,8 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven("https://jitpack.io")
-        maven("https://oss.jfrog.org/libs-snapshot")
     }
     dependencies {
         classpath(BuildPlugins.androidGradlePlugin)
@@ -19,10 +18,8 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven("https://jitpack.io")
-        maven("https://oss.jfrog.org/libs-snapshot")
-        maven("http://dl.bintray.com/amulyakhare/maven")
     }
 }
 

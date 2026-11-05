@@ -2,6 +2,7 @@ package com.inensus.core.sharedpreferences
 
 import android.content.Context
 import androidx.preference.PreferenceManager
+import com.inensus.core.BuildConfig
 
 class SharedPreferenceWrapper(context: Context) {
     private val preferences = PreferenceManager.getDefaultSharedPreferences(context)
@@ -37,8 +38,11 @@ class SharedPreferenceWrapper(context: Context) {
         }
 
     companion object {
-        private const val DEFAULT_BASE_URL = ""
-        private const val BASE_URL_SUFFIX = "/api/"
+        // Set per build type in core/build.gradle.kts:
+        // release -> https://cloud.micropowermanager.com/api/
+        // debug   -> http://api.mpmanager.local/api/
+        private val DEFAULT_BASE_URL = BuildConfig.DEFAULT_BASE_URL
+        const val BASE_URL_SUFFIX = "/api/"
 
         private const val KEY_BASE_URL = "baseUrl"
         private const val KEY_ACCESS_TOKEN = "access_token"

@@ -73,7 +73,7 @@ object Libraries {
         const val rxBinding = "2.2.0"
         const val timber = "4.7.1"
         const val lottie = "3.3.1"
-        const val textDrawable = "1.0.1"
+        const val textDrawable = "558677ea316e60346948b381e5e274f49b00d370"
         const val firebaseCrashlytics = "17.1.1"
         const val firebaseMessaging = "20.2.3"
         const val firebaseAnalytics = "17.4.4"
@@ -82,10 +82,10 @@ object Libraries {
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
 
-    const val koinScope = "org.koin:koin-androidx-scope:${Versions.koin}"
-    const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
-    const val koinCore = "org.koin:koin-core:${Versions.koin}"
-    const val koinExt = "org.koin:koin-core-ext:${Versions.koin}"
+    const val koinScope = "io.insert-koin:koin-androidx-scope:${Versions.koin}"
+    const val koinViewModel = "io.insert-koin:koin-androidx-viewmodel:${Versions.koin}"
+    const val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
+    const val koinExt = "io.insert-koin:koin-core-ext:${Versions.koin}"
 
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
     const val preferenceKtx = "androidx.preference:preference-ktx:${Versions.preference}"
@@ -115,7 +115,7 @@ object Libraries {
     const val firebaseMessaging = "com.google.firebase:firebase-messaging:${Versions.firebaseMessaging}"
     const val firebaseAnalytics = "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
 
-    const val textDrawable = "com.amulyakhare:com.amulyakhare.textdrawable:${Versions.textDrawable}"
+    const val textDrawable = "com.github.amulyakhare:TextDrawable:${Versions.textDrawable}"
 }
 
 object TestLibraries {

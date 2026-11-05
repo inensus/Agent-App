@@ -22,6 +22,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "DEFAULT_BASE_URL", "\"https://cloud.micropowermanager.com/api/\"")
+        }
+
+        getByName("debug") {
+            buildConfigField("String", "DEFAULT_BASE_URL", "\"http://api.mpmanager.local/api/\"")
         }
     }
 }

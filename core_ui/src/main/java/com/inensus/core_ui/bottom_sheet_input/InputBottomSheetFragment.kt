@@ -31,7 +31,7 @@ class InputBottomSheetFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         inputView.getTitleView().text = getString(R.string.title_server_url)
-        inputView.setText(preferences.baseUrl ?: "")
+        inputView.setText(preferences.baseUrl.orEmpty().removeSuffix(SharedPreferenceWrapper.BASE_URL_SUFFIX))
         inputView.getMainTextView().hint = getString(R.string.hint_server_url)
 
         negativeButton.setOnClickListener {
