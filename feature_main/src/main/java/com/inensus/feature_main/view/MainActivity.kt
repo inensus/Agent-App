@@ -41,6 +41,7 @@ class MainActivity : BaseActivity() {
     private lateinit var mainNavigation: MainActivityNavigation
     private lateinit var drawerFragment: DrawerFragment
     private var isAtTheTopLevel = false
+    private var deviceTokenRegistered = false
     private val topLevelNavigationIds = setOf(R.id.dashboardFragment, R.id.customersFragment, R.id.paymentsFragment, R.id.appliancesFragment, R.id.ticketsFragment)
     private lateinit var navController: NavController
 
@@ -66,8 +67,15 @@ class MainActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
 
-        if (preferences.resetFirebase) {
-            messagingRepository.resetFirebaseToken()
+        // Registered once per launch rather than only when onNewToken set the reset flag:
+        // an agent whose token was minted before they signed in would otherwise never be
+        // reachable, and a single failed registration could never be retried.
+        // resetFirebase covers a token that rotates while the app is already running, which
+        // the once-per-launch registration below would otherwise not pick up until the next
+        // cold start.
+        if (!deviceTokenRegistered || preferences.resetFirebase) {
+            deviceTokenRegistered = true
+            messagingRepository.registerDeviceToken()
         }
     }
 

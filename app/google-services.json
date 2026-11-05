@@ -1,37 +1,26 @@
 {
   "project_info": {
-    "project_number": "503127745287",
-    "firebase_url": "https://mpm-agent-notification.firebaseio.com",
-    "project_id": "mpm-agent-notification",
-    "storage_bucket": "mpm-agent-notification.appspot.com"
+    "project_number": "593488962525",
+    "project_id": "mpm-agent-notification-v2",
+    "storage_bucket": "mpm-agent-notification-v2.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:503127745287:android:e78eedcad2673548c49ba2",
+        "mobilesdk_app_id": "1:593488962525:android:93d01aa5c16e054c128c34",
         "android_client_info": {
           "package_name": "com.inensus.merchant"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "503127745287-nlr8c3trqe1cnf93uhqvjbksjp9r58v1.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDVckna7DaVOwqHivkNBSXcaDqIi3iW3CI"
+          "current_key": "AIzaSyC_oaAXCdrlU6-nuY8LV2lU_Ug0lWJWCrc"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "503127745287-nlr8c3trqe1cnf93uhqvjbksjp9r58v1.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

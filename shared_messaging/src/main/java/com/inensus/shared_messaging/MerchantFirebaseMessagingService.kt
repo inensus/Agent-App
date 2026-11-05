@@ -43,6 +43,8 @@ class MerchantFirebaseMessagingService : FirebaseMessagingService() {
 
     private fun displayNotification(id: String?, status: String?, payload: String?) {
 
+        val notificationId = id?.toIntOrNull() ?: 0
+
         val title = if (status == "1") "Successful Payment!" else "Payment Failed!"
         val content = if (status == "1") "Payment is processed succesfully" else "Payment has not been processed"
 
@@ -52,7 +54,18 @@ class MerchantFirebaseMessagingService : FirebaseMessagingService() {
             }
         }
 
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+        // Extras are not part of Intent.filterEquals, so a PendingIntent built with the same
+        // request code is handed back with whatever extras it was first created with. Every
+        // notification used request code 0 and no FLAG_UPDATE_CURRENT, so tapping one opened
+        // the summary with an earlier payment's payload -- or none at all, leaving the screen
+        // blank with a 0.00 amount. A per-notification request code keeps them distinct and
+        // FLAG_UPDATE_CURRENT refreshes the extras.
+        var pendingIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            pendingIntentFlags = pendingIntentFlags or PendingIntent.FLAG_IMMUTABLE
+        }
+
+        val pendingIntent = PendingIntent.getActivity(this, notificationId, intent, pendingIntentFlags)
 
         val style = NotificationCompat.BigTextStyle()
         style.setBigContentTitle(title)
@@ -90,7 +103,7 @@ class MerchantFirebaseMessagingService : FirebaseMessagingService() {
             notificationManager.createNotificationChannel(notificationChannel)
         }
 
-        notificationManager.notify(id?.toIntOrNull() ?: 0, notificationBuilder.build())
+        notificationManager.notify(notificationId, notificationBuilder.build())
     }
 
     companion object {
