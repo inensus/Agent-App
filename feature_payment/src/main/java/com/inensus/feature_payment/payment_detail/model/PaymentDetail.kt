@@ -1,7 +1,7 @@
 package com.inensus.feature_payment.payment_detail.model
 
 import com.google.gson.annotations.SerializedName
-import com.inensus.core_network.model.PaymentMeter
+import com.inensus.core_network.model.PaymentDevice
 import com.inensus.core_network.model.Token
 import java.math.BigDecimal
 import java.util.*
@@ -16,7 +16,7 @@ data class PaymentDetail(
     @SerializedName("created_at") val createdAt: Date,
     @SerializedName("original_transaction") val originalTransaction: OriginalTransaction?,
     @SerializedName("sms") val sms: Sms?,
-    @SerializedName("meter") val paymentMeter: PaymentMeter?,
+    @SerializedName("device") val paymentDevice: PaymentDevice?,
     @SerializedName("token") val token: Token?
 )
 

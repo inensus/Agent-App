@@ -16,8 +16,8 @@ class PaymentDetailCreator(private val context: Context) {
             KeyValue.Default(
                 context.getString(R.string.payment_detail_customer), context.getString(
                     R.string.customer_name_surname,
-                    paymentDetail.paymentMeter?.meterParameter?.owner?.name,
-                    paymentDetail.paymentMeter?.meterParameter?.owner?.surname
+                    paymentDetail.paymentDevice?.person?.name,
+                    paymentDetail.paymentDevice?.person?.surname
                 )
             ),
             KeyValue.Amount(

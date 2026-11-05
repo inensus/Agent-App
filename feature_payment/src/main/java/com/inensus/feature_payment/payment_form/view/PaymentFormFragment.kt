@@ -57,8 +57,8 @@ class PaymentFormFragment : Fragment() {
         })
 
         viewModel.customer.observe(viewLifecycleOwner, Observer { customer ->
-            customer?.meters?.let { meters ->
-                meterDropdown.bindData(meters.map { it.meter.serialNumber })
+            customer?.devices?.let { devices ->
+                meterDropdown.bindData(devices.map { it.deviceSerial })
             }
         })
 

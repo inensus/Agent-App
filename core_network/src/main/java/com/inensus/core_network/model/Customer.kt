@@ -10,5 +10,5 @@ data class Customer(
     @SerializedName("name") val name: String,
     @SerializedName("surname") val surname: String,
     @SerializedName("addresses") val addresses: List<Address>,
-    @SerializedName("meters") val meters: List<MeterGroup>?
+    @SerializedName("devices") val devices: List<Device>?
 ): Parcelable
