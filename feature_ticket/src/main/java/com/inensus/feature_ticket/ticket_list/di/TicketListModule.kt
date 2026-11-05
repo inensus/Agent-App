@@ -11,7 +11,7 @@ object TicketListModule {
     fun createTicketListModules(): List<Module> = listOf(
         module {
             viewModel {
-                getKoin().createScope(TICKET_LIST_SCOPE, named(TICKET_LIST_SCOPE))
+                getKoin().getOrCreateScope(TICKET_LIST_SCOPE, named(TICKET_LIST_SCOPE))
                 TicketListViewModel(getScope(TICKET_LIST_SCOPE).get(), get())
             }
         },

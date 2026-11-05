@@ -19,7 +19,7 @@ object DashboardMainModule {
 
     private fun createDashboardModule() = module {
         viewModel {
-            getKoin().createScope(DASHBOARD_SCOPE, named(DASHBOARD_SCOPE))
+            getKoin().getOrCreateScope(DASHBOARD_SCOPE, named(DASHBOARD_SCOPE))
             DashboardMainViewModel(getScope(DASHBOARD_SCOPE).get())
         }
 

@@ -11,7 +11,7 @@ object PaymentListModule {
     fun createPaymentListModules(): List<Module> = listOf(
         module {
             viewModel {
-                getKoin().createScope(PAYMENT_LIST_SCOPE, named(PAYMENT_LIST_SCOPE))
+                getKoin().getOrCreateScope(PAYMENT_LIST_SCOPE, named(PAYMENT_LIST_SCOPE))
                 PaymentListViewModel(getScope(PAYMENT_LIST_SCOPE).get(), get())
             }
         },

@@ -11,7 +11,7 @@ object ApplianceListModule {
     fun createApplianceListModules(): List<Module> = listOf(
         module {
             viewModel {
-                getKoin().createScope(APPLIANCE_LIST_SCOPE, named(APPLIANCE_LIST_SCOPE))
+                getKoin().getOrCreateScope(APPLIANCE_LIST_SCOPE, named(APPLIANCE_LIST_SCOPE))
                 ApplianceListViewModel(getScope(APPLIANCE_LIST_SCOPE).get(), get())
             }
         },
