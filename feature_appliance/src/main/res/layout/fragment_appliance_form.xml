@@ -36,6 +36,36 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <!-- Shown only for appliances tracked as individual units. -->
+                    <com.inensus.core_ui.dropdown_input.DropdownInputView
+                        android:id="@+id/deviceDropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:layout_margin="8dp"
+                        android:visibility="gone"
+                        app:dropdown_input_title="@string/appliance_device"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/applianceDropdown" />
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/applianceBarrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="bottom"
+                        app:constraint_referenced_ids="applianceDropdown,deviceDropdown" />
+
+                    <com.inensus.core_ui.default_input.DefaultInputView
+                        android:id="@+id/cost"
+                        style="@style/DefaultInputView"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:layout_margin="8dp"
+                        app:hint="@string/appliance_cost_hint"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/applianceBarrier"
+                        app:title="@string/appliance_cost" />
+
                     <com.inensus.core_ui.date_input.DateInputView
                         android:id="@+id/paymentDate"
                         android:layout_width="match_parent"
@@ -43,7 +73,7 @@
                         android:layout_margin="8dp"
                         app:date_input_title="@string/appliance_payment_date"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/applianceDropdown" />
+                        app:layout_constraintTop_toBottomOf="@+id/cost" />
 
                     <com.inensus.core_ui.default_input.DefaultInputView
                         android:id="@+id/downPayment"
@@ -58,6 +88,24 @@
                         app:layout_constraintTop_toBottomOf="@+id/paymentDate"
                         app:title="@string/appliance_down_payment" />
 
+                    <com.inensus.core_ui.dropdown_input.DropdownInputView
+                        android:id="@+id/rateTypeDropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:layout_margin="8dp"
+                        app:dropdown_input_title="@string/appliance_rate_type"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/downPayment" />
+
+                    <com.inensus.core_ui.dropdown_input.DropdownInputView
+                        android:id="@+id/installmentModeDropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:layout_margin="8dp"
+                        app:dropdown_input_title="@string/appliance_installment_mode"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rateTypeDropdown" />
+
                     <com.inensus.core_ui.default_input.DefaultInputView
                         android:id="@+id/tenure"
                         style="@style/DefaultInputView"
@@ -65,11 +113,35 @@
                         android:layout_height="54dp"
                         android:layout_margin="8dp"
                         android:layout_marginBottom="8dp"
-                        app:hint="@string/appliance_tenure_hint"
+                        app:hint="@string/appliance_installment_count_hint"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/downPayment"
-                        app:title="@string/appliance_tenure" />
+                        app:layout_constraintTop_toBottomOf="@+id/installmentModeDropdown"
+                        app:title="@string/appliance_installment_count" />
+
+                    <com.inensus.core_ui.default_input.DefaultInputView
+                        android:id="@+id/installmentCost"
+                        style="@style/DefaultInputView"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:layout_margin="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:visibility="gone"
+                        app:hint="@string/appliance_installment_cost_hint"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/installmentModeDropdown"
+                        app:title="@string/appliance_installment_cost" />
+
+                    <!-- Only one of the two installment inputs is on screen at a time, so the
+                         result line follows whichever is visible rather than collapsing onto
+                         the hidden one. -->
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/installmentInputsBarrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="bottom"
+                        app:constraint_referenced_ids="tenure,installmentCost" />
 
                     <ImageView
                         android:id="@+id/ivAmount"
@@ -82,7 +154,7 @@
                         android:src="@drawable/ic_amount"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tenure" />
+                        app:layout_constraintTop_toBottomOf="@+id/installmentInputsBarrier" />
 
                     <TextView
                         android:id="@+id/amountLabel"
@@ -90,7 +162,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:fontFamily="@font/regular"
-                        android:text="@string/appliance_monthly_payment"
+                        android:text="@string/appliance_installment_amount"
                         android:textColor="@color/blue_1A237E"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="@+id/ivAmount"

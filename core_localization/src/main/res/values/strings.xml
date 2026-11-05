@@ -124,6 +124,26 @@
     <string name="appliance_detail_payments_paid">Paid:</string>
     <string name="appliance_detail_payments_remaining">Remaining:</string>
     <string name="appliance_to_sell_empty">You do not have any appliance to sell yet!</string>
+
+    <!-- Appliance sale, catalogue based -->
+    <string name="appliance_cost">Cost</string>
+    <string name="appliance_cost_hint">0.00</string>
+    <string name="appliance_rate_type">Rate Type</string>
+    <string name="appliance_rate_type_weekly">Weekly</string>
+    <string name="appliance_rate_type_monthly">Monthly</string>
+    <string name="appliance_installment_mode">Installment Basis</string>
+    <string name="appliance_installment_mode_count">Installment count</string>
+    <string name="appliance_installment_mode_cost">Installment cost</string>
+    <string name="appliance_installment_count">Installment Count</string>
+    <string name="appliance_installment_count_hint">Number of installments</string>
+    <string name="appliance_installment_cost">Installment Cost</string>
+    <string name="appliance_installment_cost_hint">Cost per installment</string>
+    <string name="appliance_installment_amount">Installment Amount</string>
+    <string name="appliance_cost_error">Please enter a cost greater than zero</string>
+    <string name="appliance_installment_cost_error">Installment cost can not be more than the remaining amount</string>
+    <string name="appliance_catalogue_empty">There are no appliances in the catalogue yet!</string>
+    <string name="appliance_device">Device</string>
+    <string name="appliance_device_error">Please select a device to hand over</string>
     <string name="appliance_empty_layout_content">You haven\'t sold any appliance yet</string>
     <string name="appliance_empty_layout__with_customer_content">You haven\'t sold any appliance to %1s yet, \nwould you like to sell one?</string>
 

@@ -1,6 +1,7 @@
 package com.inensus.feature_appliance
 
 import com.inensus.feature_appliance.appliance_form.model.ConfirmApplianceRequest
+import com.inensus.feature_appliance.appliance_form.model.SellableDeviceResponse
 import com.inensus.feature_appliance.appliance_list.model.ApplianceResponse
 import com.inensus.feature_appliance.appliance_list.model.ApplianceTypeResponse
 import io.reactivex.Completable
@@ -16,6 +17,9 @@ interface ApplianceService {
 
     @GET
     fun getApplianceTypes(@Url url: String): Single<ApplianceTypeResponse>
+
+    @GET
+    fun getSellableDevices(@Url url: String): Single<SellableDeviceResponse>
 
     @POST
     fun confirmAppliance(@Url url: String, @Body request: ConfirmApplianceRequest): Completable

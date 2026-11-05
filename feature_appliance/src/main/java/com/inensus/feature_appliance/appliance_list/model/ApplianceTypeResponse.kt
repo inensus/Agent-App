@@ -5,5 +5,6 @@ import com.inensus.core_network.model.Appliance
 
 data class ApplianceTypeResponse(
     @SerializedName("data") val data: List<Appliance>,
-    @SerializedName("next_page_url") val nextPageUrl: String
+    /** The catalogue is served as a plain collection, so this is absent there. */
+    @SerializedName("next_page_url") val nextPageUrl: String?
 )

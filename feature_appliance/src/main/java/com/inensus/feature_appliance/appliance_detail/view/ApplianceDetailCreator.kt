@@ -13,7 +13,7 @@ class ApplianceDetailCreator(private val context: Context) {
 
     fun createDetailItems(transaction: ApplianceTransaction) = arrayListOf(
         KeyValue.Default(context.getString(R.string.appliance_detail_id), transaction.id.toString()),
-        KeyValue.Default(context.getString(R.string.appliance_detail_asset), transaction.applianceType.name),
+        KeyValue.Default(context.getString(R.string.appliance_detail_asset), transaction.asset?.name ?: ""),
         KeyValue.Default(
             context.getString(R.string.appliance_detail_customer),
             context.getString(R.string.customer_name_surname, transaction.person.name, transaction.person.surname)

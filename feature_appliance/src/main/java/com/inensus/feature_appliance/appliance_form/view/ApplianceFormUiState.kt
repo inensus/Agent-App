@@ -13,10 +13,13 @@ sealed class ApplianceFormUiState {
     data class ValidationError(val errors: List<Error>) : ApplianceFormUiState() {
         sealed class Error {
             object ApplianceIsBlank : Error()
-            object ApplianceAmountIsMissing : Error()
+            object CostIsBlank : Error()
             object FirstPaymentDateIsBlank : Error()
-            object DownPaymentMoreThanAppliance : Error()
-            object TenureIsBlank : Error()
+            object DownPaymentMoreThanCost : Error()
+            object InstallmentCountIsBlank : Error()
+            object InstallmentCostIsBlank : Error()
+            object InstallmentCostMoreThanRemaining : Error()
+            object DeviceIsBlank : Error()
         }
     }
 }

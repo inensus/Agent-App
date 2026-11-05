@@ -13,7 +13,11 @@ data class ApplianceTransaction(
     @SerializedName("created_at") val createdAt: Date,
     @SerializedName("total_cost") val cost: BigDecimal,
     @SerializedName("down_payment") val downPayment: BigDecimal,
-    @SerializedName("asset_type") val applianceType: ApplianceType,
+    /**
+     * The sale points at a catalogue appliance, which in turn carries its type; the backend
+     * has no asset_type of its own on the sale row.
+     */
+    @SerializedName("asset") val asset: Appliance?,
     @SerializedName("rates") val rates: List<Rate>,
     @SerializedName("person") val person: Person
 ) : Parcelable

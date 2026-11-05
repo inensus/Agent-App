@@ -44,7 +44,7 @@ class ApplianceListAdapter : RecyclerView.Adapter<ApplianceListAdapter.ViewHolde
                         ContextCompat.getDrawable(context, R.drawable.ic_pending)
                     }
                 )
-                typeText.text = transaction.applianceType.name
+                typeText.text = transaction.asset?.name ?: ""
                 priceText.text = AmountUtils.convertAmountToString(transaction.cost)
                 dateText.text = DateUtils.convertDateToString(transaction.createdAt)
                 tenureValueText.text = transaction.tenure.toString()
