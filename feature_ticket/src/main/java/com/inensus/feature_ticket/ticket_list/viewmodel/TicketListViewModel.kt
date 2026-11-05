@@ -59,7 +59,7 @@ class TicketListViewModel(private val repository: TicketListRepository, private 
     }
 
     fun onTicketTapped(ticket: Ticket) {
-        _uiState.value = TicketListUiState.TicketTapped(ticket.ticketId)
+        _uiState.value = TicketListUiState.TicketTapped(ticket.id.toString())
     }
 
     fun saveTicketsState(tickets: List<Ticket>) {
