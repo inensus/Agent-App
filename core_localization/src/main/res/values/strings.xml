@@ -41,8 +41,7 @@
     <string name="error_session_expired">Your session has expired. Please sign in.</string>
     <string name="warning_sign_out">Are you sure you want to sign out?</string>
     <string name="empty_content">Seems like this list is empty, \n please try again later</string>
-    <string name="default_currency">NGN</string>
-    <string name="zero_default_currency">0 NGN</string>
+    <string name="zero_amount">0</string>
     <string name="dropdown_placeholder">Select</string>
     <string name="date_placeholder">DD.MM.YYYY</string>
     <string name="button_continue">Continue</string>

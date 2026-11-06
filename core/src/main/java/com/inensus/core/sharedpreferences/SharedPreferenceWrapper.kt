@@ -31,6 +31,16 @@ class SharedPreferenceWrapper(context: Context) {
             preferences.edit().putString(KEY_FIREBASE_DEVICE_TOKEN, value).apply()
         }
 
+    /**
+     * The company's currency, as served by `app/agents/settings`. Empty until the first
+     * fetch succeeds, which callers render as no currency at all rather than guessing one.
+     */
+    var currency: String
+        get() = preferences.getString(KEY_CURRENCY, "") ?: ""
+        set(value) {
+            preferences.edit().putString(KEY_CURRENCY, value).apply()
+        }
+
     var resetFirebase: Boolean
         get() = preferences.getBoolean(KEY_RESET_FIREBASE, true)
         set(value) {
@@ -49,5 +59,6 @@ class SharedPreferenceWrapper(context: Context) {
         private const val KEY_DEVICE_ID = "device_id"
         private const val KEY_FIREBASE_DEVICE_TOKEN = "firebase_device_token"
         private const val KEY_RESET_FIREBASE = "reset_firebase"
+        private const val KEY_CURRENCY = "currency"
     }
 }

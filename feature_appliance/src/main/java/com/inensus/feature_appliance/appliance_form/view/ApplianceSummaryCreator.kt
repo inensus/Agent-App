@@ -3,6 +3,7 @@ package com.inensus.feature_appliance.appliance_form.view
 import android.content.Context
 import com.inensus.core.utils.AmountUtils.convertAmountToString
 import com.inensus.core.utils.DateUtils
+import com.inensus.core.utils.currency
 import com.inensus.core_network.model.Appliance
 import com.inensus.core_ui.key_value.KeyValue
 import com.inensus.feature_appliance.R
@@ -28,12 +29,12 @@ class ApplianceSummaryCreator(private val context: Context) {
         KeyValue.Amount(
             context.getString(R.string.appliance_cost),
             convertAmountToString(cost),
-            context.getString(R.string.default_currency)
+            context.currency()
         ),
         KeyValue.Amount(
             context.getString(R.string.appliance_down_payment),
             convertAmountToString(downPayment ?: BigDecimal.ZERO),
-            context.getString(R.string.default_currency)
+            context.currency()
         ),
         KeyValue.Default(
             context.getString(R.string.appliance_rate_type),
@@ -49,7 +50,7 @@ class ApplianceSummaryCreator(private val context: Context) {
         KeyValue.Amount(
             context.getString(R.string.appliance_installment_amount),
             convertAmountToString(installmentAmount),
-            context.getString(R.string.default_currency)
+            context.currency()
         ),
         KeyValue.Default(
             context.getString(R.string.appliance_payment_date),

@@ -23,6 +23,7 @@ import com.inensus.feature_main.R
 import com.inensus.shared_messaging.NotificationHandler
 import com.inensus.shared_messaging.NotificationHandler.Companion.EXTRA_PAYLOAD
 import com.inensus.shared_messaging.repository.MessagingRepository
+import com.inensus.shared_agent.service.AgentRepository
 import com.inensus.shared_navigation.Feature
 import com.inensus.shared_navigation.SharedNavigation
 import com.inensus.shared_success.view.SuccessFragment
@@ -37,11 +38,13 @@ class MainActivity : BaseActivity() {
     private val navigation: SharedNavigation by inject()
     private val notificationHandler: NotificationHandler by inject()
     private val messagingRepository: MessagingRepository by inject()
+    private val agentRepository: AgentRepository by inject()
 
     private lateinit var mainNavigation: MainActivityNavigation
     private lateinit var drawerFragment: DrawerFragment
     private var isAtTheTopLevel = false
     private var deviceTokenRegistered = false
+    private var settingsRefreshed = false
     private val topLevelNavigationIds = setOf(R.id.dashboardFragment, R.id.customersFragment, R.id.paymentsFragment, R.id.appliancesFragment, R.id.ticketsFragment)
     private lateinit var navController: NavController
 
@@ -76,6 +79,14 @@ class MainActivity : BaseActivity() {
         if (!deviceTokenRegistered || preferences.resetFirebase) {
             deviceTokenRegistered = true
             messagingRepository.registerDeviceToken()
+        }
+
+        // The currency every amount is labelled with lives on the backend, and each screen
+        // reads it from preferences synchronously. Refreshed once per launch so a company
+        // that changes it is followed without the app having to be reinstalled.
+        if (!settingsRefreshed) {
+            settingsRefreshed = true
+            agentRepository.refreshSettings()
         }
     }
 

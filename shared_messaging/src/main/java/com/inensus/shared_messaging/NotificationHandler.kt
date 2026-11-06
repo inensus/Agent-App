@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.google.gson.Gson
 import com.inensus.core.utils.AmountUtils
+import com.inensus.core.utils.currency
 import com.inensus.core_network.model.Payment
 import com.inensus.core_ui.key_value.KeyValue
 import java.math.BigDecimal
@@ -37,7 +38,7 @@ class NotificationHandler(private val context: Context) {
             KeyValue.Amount(
                 context.getString(R.string.payment_amount),
                 AmountUtils.convertAmountToString(amount),
-                context.getString(R.string.default_currency)
+                context.currency()
             ),
             KeyValue.Default(
                 context.getString(R.string.payment_token),

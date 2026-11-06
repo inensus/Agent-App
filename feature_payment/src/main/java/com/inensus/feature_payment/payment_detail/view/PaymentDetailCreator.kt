@@ -4,6 +4,7 @@ import android.content.Context
 import com.inensus.core.utils.AmountUtils
 import com.inensus.core.utils.DateUtils
 import com.inensus.core.utils.DateUtils.DATE_FORMAT_FULL
+import com.inensus.core.utils.currency
 import com.inensus.core_ui.key_value.KeyValue
 import com.inensus.feature_payment.R
 import com.inensus.feature_payment.payment_detail.model.PaymentDetail
@@ -23,7 +24,7 @@ class PaymentDetailCreator(private val context: Context) {
             KeyValue.Amount(
                 context.getString(R.string.payment_detail_amount),
                 AmountUtils.convertAmountToString(paymentDetail.amount),
-                context.getString(R.string.default_currency)
+                context.currency()
             ),
             KeyValue.Default(context.getString(R.string.payment_detail_token), paymentDetail.token?.token ?: ""),
             KeyValue.Default(context.getString(R.string.payment_detail_payment_type), paymentDetail.type),

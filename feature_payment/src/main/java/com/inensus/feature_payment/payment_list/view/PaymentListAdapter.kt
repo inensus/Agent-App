@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.inensus.core.utils.AmountUtils
 import com.inensus.core.utils.DateUtils
+import com.inensus.core.utils.currency
 import com.inensus.core_network.model.Payment
 import com.inensus.feature_payment.R
 import kotlinx.android.synthetic.main.payment_list_item.view.*
@@ -52,6 +53,7 @@ class PaymentListAdapter : RecyclerView.Adapter<PaymentListAdapter.ViewHolder>()
                 )
                 messageText.text = payment.message?.ifBlank { payment.transaction?.message } ?: payment.transaction?.message
                 amountText.text = AmountUtils.convertAmountToString(payment.amount)
+                currencyText.text = context.currency()
                 dateText.text = DateUtils.convertDateToString(payment.createdAt)
 
                 cardView.setOnClickListener {

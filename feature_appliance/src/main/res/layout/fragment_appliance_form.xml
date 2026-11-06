@@ -175,7 +175,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:fontFamily="@font/bold"
-                        android:text="@string/zero_default_currency"
+                        android:text="@string/zero_amount"
                         android:textColor="@color/blue_1A237E"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="@+id/ivAmount"

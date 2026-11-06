@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.use
 import com.inensus.core.utils.AmountUtils
 import com.inensus.core.utils.DateUtils
+import com.inensus.core.utils.currency
 import com.inensus.feature_dashboard.R
 import kotlinx.android.synthetic.main.dashboard_summary_item.view.*
 import java.math.BigDecimal
@@ -34,6 +35,7 @@ class DashboardSummaryItemView(context: Context, attributeSet: AttributeSet) : F
 
     fun bindData(amount: BigDecimal, since: Date? = null) {
         tvAmountView.text = AmountUtils.convertAmountToString(amount)
+        tvAmountCurrency.text = context.currency()
 
         tvDescriptionEnd.text = since?.let {
             context.getString(R.string.dashboard_summary_since, DateUtils.convertDateToString(it))

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.inensus.core.utils.DateUtils
+import com.inensus.core.utils.currency
 import com.inensus.core_network.model.ApplianceTransaction
 import com.inensus.core_ui.key_value.KeyValue
 import com.inensus.core_ui.key_value.KeyValueAdapter
@@ -77,7 +78,7 @@ class ApplianceDetailFragment : Fragment() {
                         Locale.getDefault()
                     ).parse(it.dueDate) ?: Date()
                 )}",
-                if (it.remainingAmount == BigDecimal.ZERO) "${getString(R.string.appliance_detail_payments_paid)} ${it.rateAmount} ${getString(R.string.default_currency)}" else "${getString(R.string.appliance_detail_payments_remaining)} ${it.remainingAmount} ${getString(R.string.default_currency)}",
+                if (it.remainingAmount == BigDecimal.ZERO) "${getString(R.string.appliance_detail_payments_paid)} ${it.rateAmount} ${requireContext().currency()}" else "${getString(R.string.appliance_detail_payments_remaining)} ${it.remainingAmount} ${requireContext().currency()}",
                 if (it.remainingAmount == BigDecimal.ZERO) R.color.green_00C853 else R.color.gray_424242
             )
         }

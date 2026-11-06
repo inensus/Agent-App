@@ -45,7 +45,7 @@
         android:layout_marginTop="1dp"
         android:fontFamily="@font/bold"
         android:paddingStart="4dp"
-        android:text="@string/default_currency"
+        tools:text="EUR"
         android:textAllCaps="true"
         android:textColor="@color/gray_BDBDBD"
         android:textSize="10sp"

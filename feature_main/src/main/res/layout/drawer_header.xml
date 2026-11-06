@@ -43,7 +43,7 @@
         app:layout_constraintStart_toEndOf="@+id/ivAvatar"
         app:layout_constraintTop_toBottomOf="@+id/emailText"
         tools:ignore="SmallSp"
-        tools:text="Balance: 125,467.32 NGN" />
+        tools:text="Balance: 125,467.32 EUR" />
 
     <View
         android:layout_width="match_parent"

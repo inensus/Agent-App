@@ -9,6 +9,7 @@ import android.widget.ImageButton
 import androidx.lifecycle.Observer
 import com.inensus.core.sharedpreferences.SharedPreferenceWrapper
 import com.inensus.core.utils.AmountUtils
+import com.inensus.core.utils.currency
 import com.inensus.core_ui.BaseFragment
 import com.inensus.core_ui.extentions.*
 import com.inensus.feature_main.R
@@ -75,7 +76,7 @@ class DrawerFragment : BaseFragment() {
         drawerHeaderSkeleton.animateGone()
         drawerHeader.animateShow()
         emailText.text = email
-        balanceText.text = getString(R.string.balance, AmountUtils.convertAmountToString(balance), getString(R.string.default_currency))
+        balanceText.text = getString(R.string.balance, AmountUtils.convertAmountToString(balance), requireContext().currency())
     }
 
     private fun setupView() {

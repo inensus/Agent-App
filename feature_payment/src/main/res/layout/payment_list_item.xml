@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/bold"
-                android:text="@string/default_currency"
+                tools:text="EUR"
                 android:textAllCaps="true"
                 android:textColor="@color/gray_BDBDBD"
                 android:textSize="9sp"
